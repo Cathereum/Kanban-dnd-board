@@ -1,0 +1,33 @@
+.columnContainer {
+  @apply bg-columnBackgroundColor w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col;
+
+  .header {
+    @apply bg-mainBackgroundColor text-lg h-[60px] cursor-grab rounded-md rounded-b-none font-bold border-4 border-columnBackgroundColor p-3 flex items-center justify-between;
+
+    .titleWrapper {
+      @apply flex gap-2 cursor-text;
+
+      .number {
+        @apply flex justify-center items-center bg-columnBackgroundColor text-sm py-1 px-2 rounded-full border border-rose-500;
+      }
+
+      > input {
+        @apply bg-black border focus:border-rose-500 rounded outline-none px-2;
+      }
+    }
+
+    > button {
+      @apply stroke-gray-500 hover:stroke-rose-500 transition-colors px-1 py-2;
+    }
+  }
+
+  .content {
+    @apply flex-grow flex flex-col gap-4 p-2 overflow-x-hidden overflow-y-auto;
+  }
+
+  .footer {
+    > button {
+      @apply flex justify-center items-center gap-2 min-w-[350px] px-1 py-2 cursor-pointer rounded-lg bg-mainBackgroundColor border-2 border-columnBackgroundColor transition-all opacity-60 hover:opacity-100;
+    }
+  }
+}

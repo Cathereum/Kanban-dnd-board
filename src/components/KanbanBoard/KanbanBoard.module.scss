@@ -1,0 +1,11 @@
+.kanbanBoard {
+  @apply m-auto flex min-h-screen w-full items-center overflow-x-auto overflow-y-hidden px-[40px];
+
+  > div {
+    @apply m-auto;
+
+    > button {
+      @apply flex gap-2 min-w-[350px] px-1 py-2 cursor-pointer rounded-lg bg-mainBackgroundColor border-2 border-columnBackgroundColor ring-rose-500 hover:ring-2 transition-all;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.taskCard {
+  @apply bg-mainBackgroundColor p-2 rounded-xl h-[100px] min-h-[100px] hover:ring-1 hover:ring-inset hover:ring-rose-500 items-center justify-between flex text-left cursor-grab;
+
+  > .content {
+    @apply cursor-text max-h-[90%] w-[85%] overflow-x-hidden overflow-y-auto;
+  }
+
+  > button {
+    @apply stroke-gray-500 hover:stroke-rose-500 transition-colors px-1 py-2;
+  }
+
+  > textArea {
+    @apply h-[90%] w-full resize-none border-none rounded bg-transparent text-white focus:outline-none;
+  }
+}

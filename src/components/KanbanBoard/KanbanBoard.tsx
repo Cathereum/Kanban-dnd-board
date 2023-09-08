@@ -1,8 +1,11 @@
+import styles from "./KanbanBoard.module.scss";
 import { useMemo, useState } from "react";
 import { PlusIcon } from "../../assets/icons/PlusIcon";
-import styles from "./KanbanBoard.module.scss";
 import { IColumn, ITask } from "../../shared/interfaces";
 import { ColumnContainer } from "../KanbanColumn/ColumnContainer";
+import { SortableContext, arrayMove } from "@dnd-kit/sortable";
+import { createPortal } from "react-dom";
+import { TaskCard } from "../TaskCard/TaskCard";
 import {
   DndContext,
   DragEndEvent,
@@ -12,9 +15,6 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import { SortableContext, arrayMove } from "@dnd-kit/sortable";
-import { createPortal } from "react-dom";
-import { TaskCard } from "../TaskCard/TaskCard";
 
 export const KanbanBoard: React.FC = () => {
   const [columns, setColumns] = useState<IColumn[]>([]);
@@ -34,8 +34,8 @@ export const KanbanBoard: React.FC = () => {
     return columns.map((column) => column.id);
   }, [columns]);
 
+  /*generate random num btw 0 & 1000*/
   const generateId = () => {
-    //generate random num btw 0 & 1000
     return Math.floor(Math.random() * 1001);
   };
 
@@ -144,7 +144,7 @@ export const KanbanBoard: React.FC = () => {
 
     if (!isActiveTask) return;
 
-    //drop a task to another Task
+    /* drop a task inside parent column */
     if (isActiveTask && isOverTask) {
       setTasks((tasks) => {
         const activeTaskIndex = tasks.findIndex(
@@ -157,7 +157,7 @@ export const KanbanBoard: React.FC = () => {
       });
     }
 
-    //drop a task to another Column
+    /* drop a task to another column */
     const isOverColumn = over.data.current?.type === "Column";
 
     if (isActiveTask && isOverColumn) {

@@ -1,11 +1,11 @@
 import { SortableContext, useSortable } from "@dnd-kit/sortable";
 import { DeleteIcon } from "../../assets/icons/DeleteIcon";
 import { IColumn, ITask } from "../../shared/interfaces";
-import styles from "./ColumnContainer.module.scss";
 import { CSS } from "@dnd-kit/utilities";
 import { useMemo, useState } from "react";
 import { PlusIcon } from "../../assets/icons/PlusIcon";
 import { TaskCard } from "../TaskCard/TaskCard";
+import styles from "./ColumnContainer.module.scss";
 
 interface ColumnProps {
   column: IColumn;
@@ -18,11 +18,11 @@ interface ColumnProps {
 }
 
 export const ColumnContainer: React.FC<ColumnProps> = ({
-  deleteColumn,
   column,
+  tasks,
+  deleteColumn,
   updateColumnTitle,
   createTask,
-  tasks,
   deleteTask,
   editTask,
 }) => {
